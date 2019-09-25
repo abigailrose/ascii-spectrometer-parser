@@ -2,7 +2,7 @@
 
 import csv;
 
-filename = input("enter filename to be parsed")
+filename = input("enter filename to be parsed: ")
 
 with open(filename) as file:
     new_filename = filename[:-3]
@@ -10,7 +10,7 @@ with open(filename) as file:
     outfile = open("parsed-" + new_filename, 'a')
     line = file.readline()
     while(line):
-        if "Data" in line:
+        if any(c.isalpha() for c in line):
             line = file.readline()
             continue
         if line == "\n":
